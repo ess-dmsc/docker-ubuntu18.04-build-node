@@ -49,6 +49,7 @@ RUN git clone https://github.com/ess-dmsc/build-utils.git && \
 RUN adduser --disabled-password --gecos "" jenkins
 
 RUN chown -R jenkins $CONAN_USER_HOME/.conan
+RUN conan config set general.revisions_enabled=True
 
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8
 RUN update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-8 800
